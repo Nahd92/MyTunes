@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MyTunes</title>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+
+
+	<!-- HEADER -->
+	<header class="header" id="header">
+		<div class="nav bd-grid">
+			<a href="#" class="nav-logo"> My<span class="logo-color">Tunes</span></a>
+
+			<!-- NAVBAR  -->
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav-list">
+					<li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+					<li class="nav-item"><a href="#newtracks" class="nav-link active">New Tracks</a></li>
+					<li class="nav-item"><a href="#addtracks" class="nav-link active">Add Tracks</a></li>
+				</ul>
+			</div>
+
+		<div class="left-navbar">
+
+			<div class="nav__search" id="nav-search">
+				<i class='bx bx-search-alt-2'></i>
+			</div>
+			<input type="text" class="search__input" id="search-input" placeholder="Search...">	
+
+			<div class="nav__toggle" id="nav-toggle">
+				<i class='bx bx-grid-alt'></i>
+
+			</div>
+		</div>
+
+	</div>
+</header>
+	
+	
+
+
+
+	
+
+	<!-- MAIN  -->
+ <main>	
+	<!-- HOME  -->
+	<section class="home" id="home">
+		<div class="home-container bd-grid">
+ 		<!-- HOME IMAGE -->			
+		 <div class="home-logo">
+			<i class='bx bx-music note'></i>
+		</div>
+					
+		<!-- HOME Title -->			
+		<div class="home-info">
+			<h3 class="home-title">Welcome to My<span class="logo-color">Tunes </span></h3>
+			<p class="home-description">This is the future of storing, listening and sharing music.</p>
+		</div>					
+	</div>
+	</section>
+
+
+
+
+
+
+
+
+
+<!-- Search Result -->
+<section class="search section" id="search-section">
+	<div class="search-container bd-grid" id="search">
+		
+		<div class="search-header">
+		<h2 class="search-title">Here's the result...</h2>
+		<i class='bx bx-x search-cross' id="cross-icon"></i>
+		</div>
+		
+		
+		<div class="noResultAfterSearch"></div>
+	</div>
+</section>
+
+
+
+	<!-- New Tracks -->
+	<section class="newtracks section" id="newtracks">
+		<h2 class="section-title">New Tracks</h2>
+		<div class="newtracks-container bd-grid">
+
+
+		<div class="track-card">
+	
+			<img src="/Assets/Covers/Avicii_-_True_(Album).png" alt="Avicii Cover" class="track-cover">
+		
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+
+
+
+		<div class="track-card">	
+			<img src="/Assets/Covers/U2.jpg" alt="U2 Cover" class="track-cover">
+
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>				
+			</div>
+			
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+		
+		<div class="track-card">
+	
+			<img src="/Assets/Covers/popsmoke-cover.jpg" alt="Pop Smoke Cover" class="track-cover">
+
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+
+		</div>
+
+		<div class="track-card">
+			<img src="/Assets/Covers/Mj-cover.jpg" alt="Michael Jackson Cover" class="track-cover">
+
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+		
+		<div class="track-card">
+			<img src="/Assets/Covers/Emninem.jpg" alt="Eminem Cover" class="track-cover">
+
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+
+		<div class="track-card">
+			<img src="/Assets/Covers/drake.jpg" alt="Drake Cover" class="track-cover">
+
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+			
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+
+		<div class="track-card">
+			<img src="/Assets/Covers/Deathm.png" alt="Deathmouse" class="track-cover">
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+		</div>
+
+		<div class="track-card">
+			<img src="/Assets/Covers/David Guetta.jpg" alt="David Guetta Cover" class="track-cover">
+			
+			<div class="track-overlay">
+				<audio controls src="/Assets/Tracks/ambient-atmospheric-4947.mp3"type="audio/mp3" class="audio"></audio>
+			</div>
+
+			<div class="card-info">
+				<h4 class="artists-name">Artist:</h4>
+				<p class="name">Avicii</p>
+				<h4 class="artist__genre">Genre:</h4>
+				<p class="genre"> Electronic</p>
+				<h4 class="artist__release">Release:</h4>
+				<p class="released">1992</p>
+				<h4 class="artist__album">Recent Album: </h4>
+				<p class="recentAlbum">Some Random Album</p>
+			</div>
+
+		</div>
+		
+	</div>
+	</section>
+
+		<!-- SIDEBAR  -->
+		<div class="sidebar" id="sidebar">
+			<!-- SIDEBAR-toggle  -->
+			<div class="sidebar__toggle" id="sidebar-toggle">
+				<i class='bx bx-right-arrow-alt sidebar__arrow' id="sidebar-arrow" ></i>
+				<i class='bx bx-left-arrow-alt sidebar__arrow-left' id="arrow-left"></i>
+			</div>	
+		
+			<div class="sidebar__items" id="sidebar-items">
+				<h3 class="sidebar-title"> Genre </h3>	
+				<a href="#" class="sidebar__link" id="genre-name">Rock</a>
+
+				<h3 class="sidebar-title"> Artists </h3>
+				<a href="#" class="sidebar__link" id="artists-name">Pop Smoke</a>
+			</div>		
+		</div>
+
+	<!-- Add Track  -->
+	<section class="addtracks section" id="addtracks">
+		<h3 class="section-title">Add Track</h3>
+		<div class="addtracks-container bd-grid">
+
+			<form action="" method="post" id="add-track">
+				
+			<div class="add-tracks-input">
+				<h5 class="addtracks-small-title">Artists: </h5>
+				<input type="text" class="artists-input" name="artist" placeholder="Artists name..">
+
+				<h5 class="addtracks-small-title">genre: </h5>
+				<input type="text" class="genre-input" name="genre"
+				placeholder="genre..">
+		
+				<h5 class="addtracks-small-title">Release year: </h5>
+				<input type="text" class="release-input" name="release"
+				placeholder="Release year..">
+				
+				<h5 class="addtracks-small-title">Recent Album: </h5>
+				<input type="text" class="release-input" name="recent-album"
+				placeholder="Recent Album..">
+		
+				<h4 class="addtracks-small-title">Upload img </h4>
+				<input type="file" class="upload-img-btn" id="addtracks-cover" name="image-filename">
+
+				<h4 class="addtracks-small-title">Upload track </h4>
+				<input type="file" class="upload-file-btn" id="addtracks-file" name="track-filename">
+			</div>
+			
+			<div class="input-tracks">
+				<input type="submit" value="Add track" >
+			</div>
+
+			</form>
+		</div>
+	</section>
+
+	<!-- Added Tracks  -->
+	<section class="added-tracks section" id="addedtracks">	
+		<h3 class="section-title">Added Tracks</h3>
+		<div class="addded-tracks-container bd-grid">
+
+
+		</div>
+	</section>
+
+
+
+
+</main>
+
+
+	<!-- FOOTER -->
+	<footer class="footer" id="footer">
+		<div class="footer-container bd-grid">
+
+			<div class="footer-box">
+				<h3 class="footer-title">My <span class="logo-color">Tunes</span></h3>
+				<p class="footer-description">The future of music</p>
+			</div>
+
+			<div class="footer-box">
+				<ul class="footer_ul">
+					<li><a href="#" class="footer__link">Privacy</a></li>
+					<li><a href="#" class="footer__link">Terms</a></li>
+					<li><a href="#" class="footer__link">FAQs</a></li>
+					<li><a href="#" class="footer__link">HELP</a></li>
+				</ul>   
+			</div>
+
+			<div class="footer-box">
+				<a href="" class="footer_social"><i class='bx bxl-facebook'></i></a>
+				<a href="" class="footer_social"><i class='bx bxl-instagram'></i></a>
+				<a href="" class="footer_social"><i class='bx bxl-twitter'></i></a>
+				<a href="" class="footer_social"><i class='bx bxl-google'></i></a>           
+			</div>
+
+
+		</div>
+		<p class="footer_copy">&#169; 2021 DhanCode -  All Rights Reserved</p>
+	</footer>
+
+	
+
+	<script src="/javascript/script.js"></script>
+
+</body>
+</html>
