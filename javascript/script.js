@@ -98,7 +98,8 @@ function showMenu() {
 
 /* === SIDEBAR   ==== */
 function sidebarSwapColor(yAxis) {
-	if(yAxis >= 400 && !(yAxis >= 4400 && yAxis <= 4950)) {
+	console.log(yAxis);
+	if(yAxis >= 570 && !(yAxis >= 6550 && yAxis <= 7200)) {
 		sidebar.classList.add('active')
 		sidebarArrow.classList.add('active')
 		arrowleft.classList.add('active')
