@@ -19,8 +19,8 @@ const form = document.getElementById('add-track');
 
 
 /* === STORED VALUES  ==== */
-const artists = document.getElementsByClassName("artists-name");
-const categories = document.getElementsByClassName("artist__genre");
+const artists = document.querySelectorAll(".name");
+const genres = document.querySelectorAll(".genre");
 
 /* === FUNCTIONS  ==== */
 
@@ -43,15 +43,48 @@ function removeSearchIconAndShowInput() {
 }
 
 function openSearchContainer() {
-	searchContainer.classList.add('active')
+	searchContainer.classList.add('active');
 	searchSection.classList.add('active');
+
 }
+
+
+
 
 function checkIfSearchWordExist(e) {
+	const noResult = document.querySelector('.noResultAfterSearch');
+	const trackCard = Array.from(document.querySelectorAll('.track-card .name'));
 
-	//e.target.value
+
+	let fetchedArtistName = trackCard.filter(a => a.innerHTML.toLowerCase() === e.target.value.toLowerCase());
+
+		for (let i = 0; i <= fetchedArtistName.length; i++) {
+			const a = fetchedArtistName[i];
+
+			if(fetchedArtistName.length > 0){
+				let superParent = a.parentElement.parentElement;
+				let parents = a.parentElement;
+	
+				console.log(a.innerHTML);
+				const img = superParent.children[0].getAttribute('src');
+				const overlay = superParent.children[1].textContent;
+				
+				const artistName = parents.children[1].textContent;
+				const genreName = parents.children[3].textContent;
+				const releaseYear = parents.children[5].textContent;
+				const albumName = parents.children[7].textContent;
+				
+				console.log(parents.children[1].textContent);
+				console.log(genreName);
+				console.log(releaseYear);
+				console.log(parents.children[7].textContent);
+			  createCard("search", "search-container", artistName, genreName,releaseYear,albumName, img, overlay)
+			}
+			else {
+				noResult.innerHTML = "No track in list";
+			}
+		}
 }
-
 
 
 
@@ -91,19 +124,10 @@ function sidebarMoveWithHiddenContainer() {
 
 /* === CREATE ELEMENT   ==== */
 
-function createCard(section, container, artistName, artistGenre, 
+function createCard(section, container, artist, artistGenre, 
 	releasedYear, album, imageFilename, trackFilename) {
-	const artistClassName = "artists-name";
-	const artistClassGenreName = "artist__genre";
-	const artistClassReleaseName = "artist__release";
-	const artistClassAlbumName = "artist__album";
+
 	const cardClassName	= "track-card";
-	const imageFileNameClassName = "track-cover";
-	const trackfileNameClassName = "audio";
-	const overlayClassName = "track-overlay";
-	const trackbuttonClassName = "btn track__button";
-
-
 	const newTracksSection = document.querySelector(`.${section}`)
 	newTracksSection.classList.add('section');
 	const newtrackcontainer = document.querySelector(`.${container}`)
@@ -111,54 +135,116 @@ function createCard(section, container, artistName, artistGenre,
 	let card = document.createElement('div');
 	card.className = cardClassName
 
-	let title = document.createElement('h2');
-	title.className = artistClassName;
-	title.innerHTML = `Artist: ${artistName}`;
-
-	let genre = document.createElement('h4');
-	genre.className = artistClassGenreName;
-	genre.innerHTML =  `Genre: ${artistGenre}`;
-
-	let released = document.createElement('h4')
-	released.classList = artistClassReleaseName
-	released.innerHTML =  `Release year: ${releasedYear}`;
-
-	let recentAlbum = document.createElement('h4')
-	recentAlbum.className = artistClassAlbumName; 
-	recentAlbum.innerHTML =  `Recent Album: ${album}`;
-	
-	let imageFile = document.createElement('img')
-	imageFile.setAttribute('src', `${imageFilename}`);
-	imageFile.classList = imageFileNameClassName
-
-	console.log(imageFile)
-	
-	let overlay = document.createElement('div');
-	overlay.className = overlayClassName;
-	let aRef = document.createElement('a')
-	aRef.className = trackbuttonClassName;
-	aRef.innerText = "Read More!";
-	
-	
-	let trackFile = document.createElement('audio');
-	trackFile.setAttribute('src', `${trackFilename}`);
-	trackFile.classList = trackfileNameClassName
-	trackFile.controls = true;
-	
-	console.log(trackFile)
+	let overlay = createTrackAndOverlayInfo(trackFilename);
+	const artistInfo = createArtistInfo(artist);
+	const genreInfo = createGenreInfo(artistGenre);
+	const releaseInfo = createReleaseInfo(releasedYear);
+	const albumInfo = createAlbumnInfo(album);
+	const cardInfo = createCardInfo()
+	const image = createImgElement(imageFilename);
 
 	newTracksSection.appendChild(newtrackcontainer);
 	newtrackcontainer.appendChild(card)
-	card.appendChild(title)
-	card.appendChild(genre)
-	card.appendChild(released)
-	card.appendChild(recentAlbum)
-	card.appendChild(imageFile)
-	overlay.appendChild(aRef);
+	card.appendChild(image)
 	card.appendChild(overlay);
-	card.appendChild(trackFile)
+	card.appendChild(cardInfo);
 
-	console.log(newtrackcontainer);
+	cardInfo.appendChild(artistInfo[0])
+	cardInfo.appendChild(artistInfo[1])
+	cardInfo.appendChild(genreInfo[0])
+	cardInfo.appendChild(genreInfo[1])
+	cardInfo.appendChild(releaseInfo[0])
+	cardInfo.appendChild(releaseInfo[1])
+	cardInfo.appendChild(albumInfo[0])
+	cardInfo.appendChild(albumInfo[1])
+}
+
+function createTrackAndOverlayInfo(trckFile) {
+	const trackfileNameClassName = "audio";
+	const overlayClassName = "track-overlay";
+	
+	let overlay = document.createElement('div');
+	overlay.className = overlayClassName;
+
+	let trackFile = document.createElement('audio');
+	trackFile.setAttribute('src', `${trckFile}`);
+	trackFile.classList = trackfileNameClassName
+	trackFile.controls = true;
+
+	 overlay.appendChild(trackFile)
+	 return overlay;
+}
+
+function createImgElement(imgFile) {	
+	const imageFileNameClassName = "track-cover";
+	let imageFile = document.createElement('img')
+	imageFile.setAttribute('src', `${imgFile}`);
+	imageFile.classList = imageFileNameClassName
+	return imageFile;
+}
+
+
+function createArtistInfo(artistName){
+	const artistClassName = "artists-name";
+
+	let title =document.createElement('h4');
+	title.className = artistClassName;
+	title.innerHTML = 'Artist:' 
+	let aName = document.createElement('p');
+	aName.innerHTML = artistName
+	aName.className = "name"
+
+	return [title, aName];
+}
+function createGenreInfo(genreName){
+	const artistClassGenreName = "artist__genre";
+	
+	let genre = document.createElement('h4');
+	genre.className = artistClassGenreName;
+	genre.innerHTML =  'Genre:';
+	let gName = document.createElement('p');
+	gName.innerHTML = genreName
+	gName.className = "genre"
+
+
+	return [genre, gName];
+}
+function createReleaseInfo(releaseName){
+	const artistClassReleaseName = "artist__release";
+	
+	let released = document.createElement('h4');
+	released.classList = artistClassReleaseName
+	released.innerHTML =  'Release year:';
+	let releasedYear = document.createElement('p');
+	releasedYear.innerHTML = releaseName
+	releasedYear.className = "released";
+	
+
+
+	return [released, releasedYear];
+}
+function createAlbumnInfo(albumName){
+	const artistClassAlbumName = "artist__album";
+
+	let recentAlbum = document.createElement('h4');
+	recentAlbum.className = artistClassAlbumName; 
+	recentAlbum.innerHTML =  'Recent Album:';
+	let theAlbumName = document.createElement('p');
+	theAlbumName.innerHTML = albumName
+	theAlbumName.className = "recentAlbum"
+
+
+
+	return [recentAlbum, theAlbumName];
+}
+
+function createCardInfo() {
+	const cardInformation = "card-info";
+
+	const cardInfo = document.createElement('div');
+	cardInfo.className = cardInformation
+
+	return cardInfo;
 }
 
 
@@ -168,13 +254,23 @@ function formValuesOnSubmitAndCreateCard() {
 	const release = form.elements["release"].value;
 	const recentAlbum = form.elements["recent-album"].value;
 	const profileImg = document.querySelector('input.upload-img-btn').files[0];
-   const profileAud = document.querySelector('input.upload-file-btn').files[0];
+    const profileAud = document.querySelector('input.upload-file-btn').files[0];
 	
-
 	const trackCoverImgURL = URL.createObjectURL(profileImg);
 	const trackFileAudioURL = URL.createObjectURL(profileAud);
 
 	createCard("added-tracks", "addded-tracks-container" ,artistInput, genreInput,release, recentAlbum, trackCoverImgURL, trackFileAudioURL);
+}
+
+
+function clearSearchInputField() {
+	searchInput.value = '';
+}
+
+function removeAllCardsInSearchContainer() {
+	const firstChild = searchContainer.firstElementChild;
+	searchContainer.innerHTML = '';
+	searchContainer.append(firstChild);
 }
 
 
@@ -200,26 +296,21 @@ searchIcon.addEventListener('click', () => {
 });
 
 searchInput.addEventListener('change',  (e) => {
-	console.log(e.target.value);
 	checkIfSearchWordExist(e);
 }) 
 
 searchInput.addEventListener('keyup',  (e) => {
 	if(e.key === 'Enter'){
 	openSearchContainer(e);
-	createCard("search", "search-container", "Iron Maiden","Heavy metal", 1992,"Heavy", "/Assets/Covers/U2.jpg", "/Assets/Tracks/ambient-atmospheric-4947.mp3")
+	clearSearchInputField();
 	}
 }) 
 
 
-
-
-
 searchCross.addEventListener('click', () => {
+	removeAllCardsInSearchContainer();
 	closeSearchContainer()
 });
-
-
 
 
 

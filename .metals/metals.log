@@ -2,3 +2,5 @@
 [0m2021.08.26 14:38:04 INFO  time: initialize in 0.77s[0m
 [0m2021.08.26 14:38:04 WARN  Build server is not auto-connectable.[0m
 [0m2021.08.26 14:38:04 WARN  no build tool detected in workspace 'C:\Users\Admin\Desktop\SchoolProject\MyTunes'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+aug 30, 2021 9:11:58 EM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
