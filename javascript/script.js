@@ -17,13 +17,18 @@ const searchInput = document.getElementById('search-input');
 const searchCross = document.getElementById("cross-icon");
 const form = document.getElementById('add-track');
 
+const editButtons = document.querySelectorAll('.edit-btn')
+const removeButtons = document.querySelectorAll('.remove-btn')
+const changeBtn = document.querySelectorAll('.change-btn');
+
 
 /* === STORED VALUES  ==== */
 const artists = document.querySelectorAll(".name");
 const genres = document.querySelectorAll(".genre");
 
-/* === FUNCTIONS  ==== */
 
+
+/* === FUNCTIONS  ==== */
 /* === SIDEBAR   ==== */
 function showSidebar() {
 	if(toggle && sidebarItems) {
@@ -98,7 +103,6 @@ function showMenu() {
 
 /* === SIDEBAR   ==== */
 function sidebarSwapColor(yAxis) {
-	console.log(yAxis);
 	if(yAxis >= 570 && !(yAxis >= 6550 && yAxis <= 7200)) {
 		sidebar.classList.add('active')
 		sidebarArrow.classList.add('active')
@@ -275,6 +279,50 @@ function removeAllCardsInSearchContainer() {
 }
 
 
+function removeACard(event) {
+	let parentsParent = event.target.parentElement.parentElement;
+	parentsParent.parentNode.removeChild(parentsParent);  
+}
+
+function editACard(event) {
+	let parentsParent = event.target.parentElement.parentElement;
+	let editCards= parentsParent.children[3].children[0];
+
+	// console.log(parentsParent)
+	// console.log(editCards)
+	
+	let artist = editCards.children[1].value;
+	let genre =  editCards.children[3].value;
+	let year =   editCards.children[5].value;
+	let album =  editCards.children[7].value;
+	
+
+}
+
+function acceptChanges(event) {
+	let parentsParent = event.target.parentElement.parentElement;
+	let editCards= parentsParent.children[3];
+	
+}
+
+function removeEditButtonOnClick(e) {
+	let parentsParent = e.target.parentElement.parentNode.id;
+	const getCardTrackWithId = document.getElementById(parentsParent);
+	let editButton = getCardTrackWithId.children[4].children[1]
+	console.log(editButton)
+	editButton.classList.toggle('active');
+}
+
+function addChangeButtonOnClick(e) {
+	let parentsParent = e.target.parentElement.parentNode.id;
+	const getCardTrackWithId = document.getElementById(parentsParent);
+	let changeButton = getCardTrackWithId.children[4].children[2]
+	changeButton.classList.toggle('active');
+}
+
+
+
+
 /* === EVENT LISTNERS  ==== */
 window.addEventListener('scroll', () => {
 	let top = window.scrollY;
@@ -297,6 +345,7 @@ searchIcon.addEventListener('click', () => {
 });
 
 searchInput.addEventListener('change',  (e) => {
+	removeAllCardsInSearchContainer();
 	checkIfSearchWordExist(e);
 }) 
 
@@ -319,3 +368,34 @@ form.addEventListener("submit", function(e) {
 	e.preventDefault();
 	formValuesOnSubmitAndCreateCard()
 })
+
+
+
+for (let i = 0; i < editButtons.length; i++) {
+	const element = editButtons[i];
+	element.addEventListener('click', function(event)  {
+		event.preventDefault();
+		editACard(event);
+		removeEditButtonOnClick(event);
+		addChangeButtonOnClick(event);
+	})
+}
+
+
+for (let i = 0; i < removeButtons.length; i++) {
+	const element = removeButtons[i];
+	element.addEventListener('click', (e) => {
+		e.preventDefault();
+	removeACard(e)
+})
+}
+
+for (let i = 0; i < changeBtn.length; i++) {
+	const element = changeBtn[i];
+	element.addEventListener('click', (e) => {
+		e.preventDefault();
+		acceptChanges(e);
+		removeEditButtonOnClick(e);
+		addChangeButtonOnClick(e);
+	})
+}

@@ -564,9 +564,9 @@ input[type=submit]:hover {
 .track-overlay {
   position: absolute;
   left: -100%;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  top: 3.3em;
+  width: 80%;
+  height: 50.3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -576,13 +576,70 @@ input[type=submit]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: rgba(138, 138, 138, 0.3);
   -webkit-transition: .8s;
   transition: .8s;
 }
 
+.edit-card-container {
+  display: none;
+}
+
+.edit-card-container.active {
+  display: block;
+}
+
+.edit-cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 2em 0;
+  font-size: 1em;
+  padding-left: 3em;
+}
+
+.edit-cards input {
+  width: 80%;
+}
+
+.card-buttons {
+  margin: 2em 0;
+  padding: 0 2em;
+}
+
+.card-buttons .track-button {
+  display: inline-block;
+  color: var(--dark-color);
+  padding: 1.125rem 2rem;
+  font-weight: var(--font-bold);
+  background-color: var(--white-color);
+  padding: 1em;
+  border-radius: .5rem;
+  -webkit-transition: .3s;
+  transition: .3s;
+  margin: 0 2em;
+}
+
+.card-buttons .track-button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.card-buttons .change-btn {
+  display: none;
+}
+
+.change-btn.active {
+  display: inline-block;
+}
+
+.edit-btn.active {
+  display: none;
+}
+
 .track-card:hover .track-overlay {
-  left: 0;
+  left: 3.3em;
 }
 
 .audio {
@@ -769,7 +826,11 @@ input[type=submit]:hover {
   font-size: 1em;
 }
 
-.footer-container .footer_ul li:hover {
+.footer-container .footer_ul {
+  margin-top: 1.2em;
+}
+
+.footer-container .footer_ul .footer_ul li:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
