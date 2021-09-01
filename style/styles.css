@@ -4,7 +4,7 @@
 /* === VARIABLES  === */
 :root {
   --header-height-small: 3rem;
-  --header-height-bigger: 4rem;
+  --header-height-bigger: 3.5rem;
   /*==== Font Weights ===*/
   --font-medium: 500;
   --font-semi-bold: 600;
@@ -535,7 +535,7 @@ input[type=submit]:hover {
 }
 
 .home-container .home-description {
-  margin: 0em 1em;
+  margin: 1em 1em 4em 0;
   text-align: center;
   font-size: var(--smaller-font-size);
 }
@@ -861,12 +861,12 @@ input[type=submit]:hover {
     width: 75px;
   }
   .nav {
-    height: calc(var(--header-height-bigger) + 1rem);
+    height: calc(var(--header-height-bigger));
   }
   .track-card {
     padding: 0;
   }
-  .home-logo .note {
+  .note {
     font-size: 400px;
   }
   .nav-item:hover {
@@ -960,6 +960,9 @@ input[type=submit]:hover {
   .nav__menu {
     margin-left: auto;
   }
+  .home-logo .note {
+    font-size: 400px;
+  }
   .nav-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -984,11 +987,26 @@ input[type=submit]:hover {
     border-radius: 1em;
     border-color: #141414;
     border-style: solid 2em;
-    margin-bottom: 1.3em;
+    margin-bottom: .7em;
   }
   .track-overlay {
     width: 80%;
     margin-top: 2em;
+  }
+  .home-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .newtracks-container {
     -ms-grid-columns: (315px)[3];
