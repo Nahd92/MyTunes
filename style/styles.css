@@ -514,7 +514,7 @@ input[type=submit]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 80vh;
+  min-height: 70vh;
 }
 
 .home-container .note {
@@ -865,6 +865,9 @@ input[type=submit]:hover {
   }
   .track-card {
     padding: 0;
+  }
+  .home-logo .note {
+    font-size: 400px;
   }
   .nav-item:hover {
     -webkit-transform: scale(1.2);

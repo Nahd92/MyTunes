@@ -521,7 +521,7 @@ input[type=submit]:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 80vh;
+	min-height: 70vh;
 
 
 	.note {
@@ -851,6 +851,13 @@ input[type=submit]:hover {
 		padding: 0;
 	}
 
+
+
+	.home-logo {
+		.note {
+			font-size: 400px;
+		}
+	}
 
 	.nav-item:hover {
 		transform: scale(1.2);
