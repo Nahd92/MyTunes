@@ -970,4 +970,31 @@ input[type=submit]:hover {
 	}
 
 
+	.addded-tracks-container {
+		grid-template-columns: repeat(3, 315px);
+	}
+
+
+	.footer_ul {
+		display: flex;
+		padding: 0 3em;
+		font-size: 1em;
+
+		.footer__link {
+			padding: 0 2eM;
+		}
+	}
+
+	.footer_ul li:hover {
+		transform: scale(1.2);
+	}
+
+
+	.footer-box {
+
+		.footer_social {
+			font-size: 1.5em;
+			margin-top: 1em;
+		}
+	}
 }

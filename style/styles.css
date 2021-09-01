@@ -995,5 +995,27 @@ input[type=submit]:hover {
     -ms-grid-columns: (315px)[3];
         grid-template-columns: repeat(3, 315px);
   }
+  .addded-tracks-container {
+    -ms-grid-columns: (315px)[3];
+        grid-template-columns: repeat(3, 315px);
+  }
+  .footer_ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 3em;
+    font-size: 1em;
+  }
+  .footer_ul .footer__link {
+    padding: 0 2eM;
+  }
+  .footer_ul li:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  .footer-box .footer_social {
+    font-size: 1.5em;
+    margin-top: 1em;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
