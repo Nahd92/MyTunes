@@ -521,13 +521,13 @@ input[type=submit]:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 80vh;
+	min-height: 100vh;
 
 
 	.note {
 		margin-bottom: 2rem;
-		font-size: 375px;
-		margin-top: -5rem;
+		font-size: 345px;
+		margin-top: -2rem;
 		background: -webkit-linear-gradient(#3c1053, #f80759);
 		background-clip: border-box;
 		-webkit-background-clip: text;
